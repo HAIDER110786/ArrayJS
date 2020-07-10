@@ -195,21 +195,114 @@ class JSArray{
         })
     }
     static reduceOperation(){
-        console.log('reduce button pressed');
+        const sampleDataReduced = sampleData.reduce((currentTotal,currentSample)=>{
+            return currentTotal+currentSample.age;
+        },0)
+
+        
+        arrayAnswer.innerHTML = `
+        The Given Data set is reduced into a single value which is the sum of all
+        the ages of the candidates. The sum is <b>${sampleDataReduced}.</b><br><br>`;   
+        // `<div style="padding:10px;border:1px solid #e7e7e7;border-width:1px 2px"> The name 
+        // is <b>${currentSample.name}</b>. The age is <b>${currentSample.age}</b>. 
+        // The degree of the person is <b>${currentSample.degree}</b>. The person
+        //  passed out in/current
+        // studying in <b>${currentSample.year}</b> and the university is
+        //  <b>${currentSample.university}
+        // </b></div>
+        // `
     }
     static findOperation(){
-        console.log('find button pressed');
+        const sampleDataFound = sampleData.find((currentSample)=>{
+            return currentSample.degree === 'Mechanical Engineering';
+        })
+
+        arrayAnswer.innerHTML = `
+        The find method is operated on the given Data set where is the condition is to 
+        find the first candidate with the degree of mechancial engineering<br><br>`;
+            arrayAnswer.innerHTML += `{${sampleDataFound.name},${sampleDataFound.age},${sampleDataFound.university},${sampleDataFound.year},${sampleDataFound.degree}},     `;
     }
     static forEachOperation(){
-        console.log('forEach button pressed');
+        arrayAnswer.innerHTML = `
+        The foreach method is applied on the given Data set in such the way that each
+         object is tranformed into a table entry with its corresponding data<br><br>`;
+    
+        sampleData.forEach(currentSample=>{   
+            arrayAnswer.innerHTML += `
+            <div style="padding:10px;border:1px solid #e7e7e7;border-width:1px 2px;
+            margin-bottom:10px"> The name is <b>${currentSample.name}</b>. The age is 
+            <b>${currentSample.age}</b>. The degree of the person is <b>
+            ${currentSample.degree}</b>. The person passed out in/current studying in 
+            <b>${currentSample.year}</b> and the university is
+            <b>${currentSample.university}</b></div>
+            `
+        })
     }
     static someOperation(){
-        console.log('some button pressed');
+        arrayAnswer.innerHTML = `
+        The some method is applied on the given Data set to search for atleast one of the 
+        entry to be passed out <br><br>`;
+        const sampleDataSome = sampleData.some((currentSample)=>{
+            return currentSample.year === "passed out";
+        })
+        sampleDataSome ? (  
+            arrayAnswer.innerHTML += `ANSWER: Yes atleast one of the listed candidates is passed out`
+            ) : (
+                arrayAnswer.innerHTML += `ANSWER: No not even one of the listed candidates is passed out`
+            )
+
+        arrayAnswer.innerHTML += `<br><br><b>NOTE: The Some method returns true as soon as the first entry of the array
+        fulfills the condition</b>`
     }
     static everyOperation(){
-        console.log('every button pressed');
+        arrayAnswer.innerHTML = `
+        The every method is applied on the given Data set to search for all of the 
+        listed entries are computer science students or not<br><br>`;
+        const sampleDataEvery = sampleData.every((currentSample)=>{
+            return currentSample.degree === "computer science";
+        })
+        sampleDataEvery ? (  
+            arrayAnswer.innerHTML += `ANSWER: Yes all of the listed candidates are computer science students`
+            ) : (
+                arrayAnswer.innerHTML += `ANSWER: No not all of the listed candidates are computer science students`
+            )
+
+        arrayAnswer.innerHTML += `<br><br><b>NOTE: The Every method checks the condition for all the entries of the
+         array</b>`
     }
-    static includesOperation(){
-        console.log('includes button pressed');
-    }
+    // static includesOperation(){
+    //     arrayAnswer.innerHTML = `
+    //     The includes method looks into the array to check if an entry with the name of haider exists there<br><br>`;
+    //     const sampleDataInclude = sampleData.includes('{');
+
+    //     console.log(sampleDataInclude);
+
+    //     // sampleDataInclude ? (  
+    //     //     arrayAnswer.innerHTML += `ANSWER: Yes an entry with the name of haider exists`
+    //     //     ) : (
+    //     //         arrayAnswer.innerHTML += `ANSWER: No an entry with the name of haider does not exist in the array`
+    //     //     )
+
+    //     // arrayAnswer.innerHTML += `<br><br><b>NOTE: The Every method checks the condition for all the entries of the
+    //     //  array</b>`
+    // }
 }
+
+
+
+
+// function injectTheAnswer(Note,operatedSample){
+    
+//     arrayAnswer.innerHTML = `${Note}<br><br>`
+//     operatedSample.forEach(currentSample=>{   
+//         arrayAnswer.innerHTML += `{${currentSample.name},${currentSample.age},${currentSample.university},${currentSample.year},${currentSample.degree}},     `;
+//         // `<div style="padding:10px;border:1px solid #e7e7e7;border-width:1px 2px"> The name 
+//         // is <b>${currentSample.name}</b>. The age is <b>${currentSample.age}</b>. 
+//         // The degree of the person is <b>${currentSample.degree}</b>. The person
+//         //  passed out in/current
+//         // studying in <b>${currentSample.year}</b> and the university is
+//         //  <b>${currentSample.university}
+//         // </b></div>
+//         // `
+//     })
+// }
